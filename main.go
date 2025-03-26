@@ -8,7 +8,9 @@ import (
 
 func main() {
 	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
-		fmt.Fprintf(w, "Hello, This is K-NET")
+		w.Header().Set("Content-Type", "application/json")
+		
+		fmt.Fprintf(w, `{"Success": true, "Detail": "Hello, This is K-NET"}`)
 	})
 
 	fmt.Println("Server starting on :60950")
